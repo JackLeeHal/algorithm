@@ -27,8 +27,8 @@ func preOrder2(root *TreeNode) {
 			root = root.Left
 		}
 		// pop
-		node := stack[len(stack) - 1]
-		stack = stack[:len(stack) - 1]
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
 		root = node.Right
 	}
 }
@@ -39,19 +39,15 @@ func inorder(root *TreeNode) {
 	}
 
 	stack := make([]*TreeNode, 0)
-	for len(stack) > 0 || root != nil{
+	for len(stack) > 0 || root != nil {
 		for root != nil {
 			stack = append(stack, root)
 			root = root.Left
 		}
 		// pop
-		val := stack[len(stack) - 1]
-		stack = stack[:len(stack) - 1]
+		val := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
 		fmt.Println(val.Val)
 		root = val.Right
 	}
-}
-
-func postOrder(root *TreeNode) {
-
 }
